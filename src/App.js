@@ -18,16 +18,21 @@ injectGlobal`
 const AppStyles = styled.div`
   a {
     text-decoration: none;
-    color: #108db8;
-    font-weight: bold;
+    color: green;
+    font-weight: 100;
   }
 
   nav {
-    width: 100%;
-    background: #108db8;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background: #fff;
+    padding: 1rem 2rem;
 
+    div {
+      justify-self: end;
+    }
     a {
-      color: white;
+      color: green;
       padding: 1rem;
       display: inline-block;
     }
@@ -42,9 +47,14 @@ export default () => (
   <Router>
     <AppStyles>
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/blog">Blog</Link>
+        <Link to="/" className="home">Dave Lindberg Marketing & Design</Link>
+        <div>
+          <a href="/#marketing">Marketing</a>
+          <a href="/#design">Design</a>
+          <Link to="/about">About</Link>
+          <Link to="/blog">Blog</Link>
+          <a href="tel:802-282-3368">802 282-3368</a>
+        </div>
       </nav>
       <div className="content">
         <Routes />
