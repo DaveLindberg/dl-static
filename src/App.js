@@ -40,9 +40,73 @@ const AppStyles = styled.div`
 
   .content {
     padding: 1rem;
-
-
   }
+
+  .inactive {
+    display: grid;
+    background-size: cover;
+    background-position: center center;
+    font-size: 1.2em;
+    .message {
+      display: none;
+    }
+    :hover {
+      font-size: 2em;
+      border: 1px solid white;
+      background-color: rgba(0,0,0, .4);
+      transition: background .5s;
+      align-self: stretch;
+      text-align: center;
+      // align-items: center;
+      h2 {
+        height: 100%;
+        padding: 0px;
+        font-size: 2em;
+      }
+    }
+  }
+  .inactive h2, .active h2 {
+    font-size: 1.2em;
+    padding: 20px;
+    margin: 0px;
+    cursor: pointer;
+    color: #ffffff;
+    text-transform: capitalize;
+    text-shadow: 2px 2px 4px #000;
+  }
+
+  .active {
+    display: grid;
+    background-size: cover;
+    background-position: center center;
+    grid-column: 1 / -1;
+    grid-row-start: 1 ;
+    grid-row-end: 5 ;
+    transition: all 1s ease;
+    z-index: 100;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: stretch;
+    h2 {
+      font-size: 2.5em;
+      text-align: center;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      align-self: center;
+    }
+    .message {
+      grid-column: 1 / -1;
+      grid-row: 2 / -1;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: 100;
+    }
+  }
+  .active:hover {
+    background-color: rgba(200,0,0, 0.5);
+  }
+}
+
 `
 
 export default () => (
