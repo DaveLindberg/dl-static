@@ -6,8 +6,7 @@ import Routes from 'react-static-routes'
 
 injectGlobal`
   body {
-    font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
-      'Lucida Grande', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     font-size: 18px;
     margin: 0;
@@ -42,26 +41,47 @@ const AppStyles = styled.div`
     padding: 1rem;
   }
 
+.main{
+  grid-column: 1 / -1;
+  grid-row: 3 / -1;
+
+}
+
   .inactive {
     display: grid;
     background-size: cover;
     background-position: center center;
     font-size: 1.2em;
-    .message {
+    grid-template-columns: 1fr 1em;
+    grid-template-rows: 1fr;
+    overflow: hidden;
+
+    .color-overlay {
+      background-color: rgba(0,0,0, .0);
+      grid-column: 1 / -1;
+      grid-row: 1 / -1;
+      display: grid;
+      min-height: 0px;
+    }
+    .closer, p, a {
       display: none;
     }
     :hover {
-      font-size: 2em;
+      font-size: 1.2em;
       border: 1px solid white;
-      background-color: rgba(0,0,0, .4);
-      transition: background .5s;
       align-self: stretch;
       text-align: center;
       // align-items: center;
+      .color-overlay {
+        background-color: rgba(0,0,0, .4);
+        transition: background .5s;
+        padding: 0em;
+      }
       h2 {
         height: 100%;
         padding: 0px;
         font-size: 2em;
+        grid-row: 2 / 3;
       }
     }
   }
@@ -76,31 +96,57 @@ const AppStyles = styled.div`
   }
 
   .active {
-    display: grid;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
     background-size: cover;
     background-position: center center;
-    grid-column: 1 / -1;
-    grid-row-start: 1 ;
-    grid-row-end: 5 ;
     transition: all 1s ease;
     z-index: 100;
+    display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
     align-items: stretch;
+
+    .color-overlay {
+      grid-column: 1 / 2;
+      grid-row: 1 / -1;
+      padding: 0em;
+      display: grid;
+      grid-template-columns: 1fr 1em;
+      grid-template-rows: 1em 3fr 1fr 2fr;
+      background-color: rgba(0,0,0, .4);
+      transition: background .5s;
+    }
+    .closer {
+      display: block;
+      padding: 1em;
+      cursor: pointer;
+      grid-column: 2 / -1;
+      grid-row: 1 / 2;
+      justify-self: end;
+    }
+
     h2 {
       font-size: 2.5em;
       text-align: center;
-      grid-column: 1 / 2;
-      grid-row: 1 / 2;
+      padding: 0 4em;
+      grid-column: 1 / -1;
+      grid-row: 2 / 3;
       align-self: center;
     }
-    .message {
+    p {
       grid-column: 1 / -1;
-      grid-row: 2 / -1;
-      text-align: center;
-      font-size: 1.5em;
-      font-weight: 100;
+      grid-row: 3 / 4;
+      padding: 0 4em;
     }
+    a {
+      grid-column: 1 / -1;
+      grid-row: 4 / -1;
+      align-item: center;
+      align-self: start;
+      justify-self: center;
+    }
+
   }
   .active:hover {
     background-color: rgba(200,0,0, 0.5);

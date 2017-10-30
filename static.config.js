@@ -50,6 +50,7 @@ export default {
           <Head>
             <meta charSet="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600" rel="stylesheet"/>
             {styleTags}
           </Head>
           <Body>{newChildren}</Body>

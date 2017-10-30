@@ -5,13 +5,27 @@ import styled from 'styled-components';
 
 //
 
+const ContainerDiv =styled.div`
+  display: grid;
+`
+
+const Headline = styled.h1`
+  color: darkgoldenrod;
+  font-family: 'Oswald', sans-serif;
+  font-size: 4em;
+  text-transform: capitalize;
+  text-align: center;
+  grid-column: 1 / -1;
+  grid-row: 1 / 2;
+
+`
 
 class Container extends React.Component {
   render() {
     return (
-      <div>
+      <ContainerDiv className='container'>
         <Main items={this.props.items} />
-      </div>
+      </ContainerDiv>
     );
   }
 }
@@ -20,7 +34,8 @@ const StyledMain = styled.div`
   grid-area: main;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 25vh;
+  grid-template-rows: repeat(5,20vh);
+  grid-auto-rows: 0px;
   grid-gap: 0px;
 `
 
@@ -58,6 +73,9 @@ class Main extends React.Component {
 
     return (
       <StyledMain className="main">
+      <Headline><span>Growing Your Business Takes </span><br />
+        More Than a Web Site.
+      </Headline>
         {squares}
       </StyledMain>
     );
@@ -67,16 +85,37 @@ class Main extends React.Component {
 
 const StyledSquare = styled.div`
   background-image:url(${props => props.background});
+  padding: 0em;
+`
+const ColorOverlay = styled.div`
   padding: 2em;
 `
-
+const Closer = styled.div`
+  color: #ffffff;
+  cursor: pointer;
+`
 const SquareH2 = styled.h2`
   color: darkgoldenrod;
   font-family: 'Oswald', sans-serif;
   font-size: 1.2em;
   text-transform: capitalize;
-`;
+`
+const Message = styled.p`
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.4em;
+  font-weight: 100;
+`
+const LinkButton = styled.a`
 
+  display: block;
+  color: green;
+  font-size: 1.4em;
+  background: rgba(255,255,255, 0.6);
+  padding: .5em 2em;
+  border: 3px solid green;
+  border-radius: 6px;
+`
 
 class Square extends React.Component {
   constructor(props) {
@@ -102,10 +141,16 @@ class Square extends React.Component {
         background={this.props.background}
         // style={background-image:url({this.props.background})}
       >
-        <SquareH2> {this.props.title}  </SquareH2>
-        <div className='message' > <p>{this.props.message}
-          <a href={this.props.link}>{this.props.link}</a>
-        </p> </div>
+        <ColorOverlay className='color-overlay'>
+        <Closer className='closer'>X</Closer>
+          <SquareH2>
+            {this.props.title}
+          </SquareH2>
+          <Message>
+            {this.props.message}
+          </Message>
+          <LinkButton className='LinkButton' href={this.props.link}>{this.props.link}</LinkButton>
+        </ColorOverlay>
       </StyledSquare>
     );
   }
@@ -115,7 +160,7 @@ class Square extends React.Component {
 const ITEMS = [
   {id: 1,
     title: 'brands',
-    message: "They frame the conversation. Add context and meaning. A coherent brand delivers <em>tangible value</em>. ",
+    message: "They frame the conversation. Add context and meaning. A coherent brand delivers tangible value. ",
     link:'/espressoluv',
     background: 'https://davelindberg.github.io/assets/images/signboard.jpg'
   },
