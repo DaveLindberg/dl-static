@@ -4,6 +4,17 @@ import styled, { injectGlobal } from 'styled-components'
 //
 import Routes from 'react-static-routes'
 
+/*
+olive      #999900 // olive
+gold       #CC9900
+blue       #2D7173
+orange     #B26330
+red        #94353C
+gray       #796969
+light-grey #ADA0A0
+*/
+
+
 injectGlobal`
   body {
     font-family: 'Montserrat', sans-serif;
@@ -17,35 +28,46 @@ injectGlobal`
 const AppStyles = styled.div`
   a {
     text-decoration: none;
-    color: green;
-    font-weight: 100;
   }
 
   nav {
     display: grid;
     grid-template-columns: 1fr 2fr;
     background: #fff;
-    padding: 1rem 2rem;
+    padding: 1rem 2rem 0 ;
 
     div {
       justify-self: end;
     }
     a {
-      color: green;
+      color: #999900;
       padding: 1rem;
       display: inline-block;
+      @media (max-width: 767px) {
+        font-size: 16px;
+        display: block;
+        padding: .2rem 0;
+      }
+      :hover {
+        color: #CC9900;
+        font-weight: 400;
+      }
     }
   }
 
   .content {
-    padding: 1rem;
+    padding: 0rem;
   }
 
-.main{
-  grid-column: 1 / -1;
-  grid-row: 3 / -1;
+  .main{
+    grid-column: 1 / -1;
+    grid-row: 3 / -1;
 
-}
+    h1 span {
+      color: #ADA0A0;
+      font-size: 80%;
+    }
+  }
 
   .inactive {
     display: grid;
@@ -71,7 +93,6 @@ const AppStyles = styled.div`
       border: 1px solid white;
       align-self: stretch;
       text-align: center;
-      // align-items: center;
       .color-overlay {
         background-color: rgba(0,0,0, .4);
         transition: background .5s;
@@ -82,18 +103,25 @@ const AppStyles = styled.div`
         padding: 0px;
         font-size: 2em;
         grid-row: 2 / 3;
+        @media (max-width: 767px) {
+          font-size: 1.5em;
+        }
       }
     }
   }
   .inactive h2, .active h2 {
-    font-size: 1.2em;
-    padding: 20px;
+    padding: 3% 7%;
     margin: 0px;
     cursor: pointer;
     color: #ffffff;
     text-transform: capitalize;
     text-shadow: 2px 2px 4px #000;
+    @media (max-width: 767px) {
+      padding: 0 0;
+      text-align: center;
+    }
   }
+
 
   .active {
     grid-column: 1 / -1;
@@ -127,7 +155,8 @@ const AppStyles = styled.div`
     }
 
     h2 {
-      font-size: 2.5em;
+      font-size: 5em;
+      color: #999900;
       text-align: center;
       padding: 0 4em;
       grid-column: 1 / -1;
@@ -137,7 +166,9 @@ const AppStyles = styled.div`
     p {
       grid-column: 1 / -1;
       grid-row: 3 / 4;
-      padding: 0 4em;
+      padding: 0 25%;
+      font-weight: 300;
+      text-shadow: 0px 0px 4px #000;
     }
     a {
       grid-column: 1 / -1;
@@ -146,10 +177,11 @@ const AppStyles = styled.div`
       align-self: start;
       justify-self: center;
     }
-
-  }
-  .active:hover {
-    background-color: rgba(200,0,0, 0.5);
+    a:hover {
+      color: #999900 !important;
+      border-color: #999900 !important;
+      background: rgba(0,0,0, 0.8);
+    }
   }
 }
 
