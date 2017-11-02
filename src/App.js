@@ -126,6 +126,7 @@ const AppStyles = styled.div`
   .active {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
+    max-height: 100vh;
     background-size: cover;
     background-position: center center;
     transition: all 1s ease;
@@ -138,13 +139,15 @@ const AppStyles = styled.div`
     .color-overlay {
       grid-column: 1 / 2;
       grid-row: 1 / -1;
+      max-height: inherit;
+      overflow: scroll;
       padding: 0em;
       display: grid;
       grid-template-columns: 1fr 1em;
       grid-template-rows: 1em 3fr 1fr 2fr;
       background-color: rgba(0,0,0, .4);
       transition: background .5s;
-    }
+}
     .closer {
       display: block;
       padding: 1em;
@@ -162,13 +165,21 @@ const AppStyles = styled.div`
       grid-column: 1 / -1;
       grid-row: 2 / 3;
       align-self: center;
-    }
+      @media (max-width: 767px) {
+        font-size: 2em;
+        padding: 0 0em;
+        grid-row: 2 / 3;
+      }
+  }
     p {
       grid-column: 1 / -1;
       grid-row: 3 / 4;
       padding: 0 25%;
       font-weight: 300;
       text-shadow: 0px 0px 4px #000;
+      @media (max-width: 767px) {
+        font-size: 1em;
+      }
     }
     a {
       grid-column: 1 / -1;
@@ -176,6 +187,11 @@ const AppStyles = styled.div`
       align-item: center;
       align-self: start;
       justify-self: center;
+      @media (max-width: 767px) {
+        font-size: 1em;
+        text-align: center;
+        margin: 0 10%;
+      }
     }
     a:hover {
       color: #999900 !important;
