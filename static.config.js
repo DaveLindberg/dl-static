@@ -8,6 +8,7 @@ export default {
   }),
   getRoutes: async () => {
     const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    const {data: { pages } } = await axios.get('') // neeed contentful content here
     return [
       {
         path: '/',
@@ -17,6 +18,14 @@ export default {
         path: '/about',
         component: 'src/containers/About',
       },
+      {
+        path: '/pages',
+        component: 'src/containers/Pages',
+        getProps: () => ({
+          pages,
+        }),
+        /* add children */
+      }
       {
         path: '/blog',
         component: 'src/containers/Blog',

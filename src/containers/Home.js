@@ -199,7 +199,7 @@ const ITEMS = [
     title: 'leads',
     message: "Connecting with people when they’re at a specific point in the purchase process. Awareness leads to interest; interest leads to action. Actions lead to leads.",
     link: '/tim-clue',
-    cta: "Case Study: TIm Clue",
+    cta: "Case Study: Tim Clue",
     background: 'https://davelindberg.github.io/assets/images/timclue.jpg'
   },
   {id: 4,
@@ -239,7 +239,7 @@ const ITEMS = [
   },
   {id: 9,
     title: 'customers',
-    message: "Acquiring new customers requires effort and expense. Leverage that investment to maintain profitable, long-term relationships.",
+    message: "Changing your expectations can change everything.",
     link: "/overland",
     cta: "Case Study: Overland Sheepskin",
     background: 'https://davelindberg.github.io/assets/images/ovr_tile.jpg'
