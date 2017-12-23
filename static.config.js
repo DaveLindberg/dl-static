@@ -8,7 +8,7 @@ export default {
   }),
   getRoutes: async () => {
     const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
-    const {data: { pages } } = await axios.get('') // neeed contentful content here
+    const { data: pages } = await axios.get('https://cdn.contentful.com/spaces/nduvinekhcuh/entries?access_token=cbf632c5d3957190b1494ee74e53a9a491551dc112ba4796a427af0e0a1af07c')
     return [
       {
         path: '/',
@@ -18,14 +18,6 @@ export default {
         path: '/about',
         component: 'src/containers/About',
       },
-      {
-        path: '/pages',
-        component: 'src/containers/Pages',
-        getProps: () => ({
-          pages,
-        }),
-        /* add children */
-      }
       {
         path: '/blog',
         component: 'src/containers/Blog',
@@ -37,6 +29,21 @@ export default {
           component: 'src/containers/Post',
           getProps: () => ({
             post,
+          }),
+        })),
+      },
+      {
+        path: '/pages',
+        component: 'src/containers/Pages',
+        getProps: () => ({
+          pages,
+        }),
+        /* add children */
+        children: pages.map(page => ({
+          path: `/page/${page.title}`,
+          component: 'src/containers/Page',
+          getProps: () => ({
+            page,
           }),
         })),
       },

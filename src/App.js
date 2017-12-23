@@ -3,6 +3,7 @@ import { Router, Link } from 'react-static'
 import styled, { injectGlobal } from 'styled-components'
 //
 import Routes from 'react-static-routes'
+var contentful = require('contentful')
 
 /*
 olive      #999900 // olive

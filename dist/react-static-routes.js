@@ -4,6 +4,7 @@
 
     import src_containers_Home from '../src/containers/Home'
 import src_containers_About from '../src/containers/About'
+import src_containers_Pages from '../src/containers/Pages'
 import src_containers_Post from '../src/containers/Post'
 import src_containers_Blog from '../src/containers/Blog'
 import src_containers____ from '../src/containers/404'
@@ -14,6 +15,7 @@ import src_containers____ from '../src/containers/404'
           <Switch>
               <Route exact path={'/'} component={src_containers_Home} />
 <Route exact path={'/about'} component={src_containers_About} />
+<Route exact path={'/pages'} component={src_containers_Pages} />
 <Route exact path={'/blog/post/1'} component={src_containers_Post} />
 <Route exact path={'/blog/post/2'} component={src_containers_Post} />
 <Route exact path={'/blog/post/3'} component={src_containers_Post} />
